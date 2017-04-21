@@ -4,6 +4,7 @@
 </head>
 
 <h1 align="center"> SMTP Protocol Analysis Log </h1> 
+<p align="left">eml文件可通过outlook、foxmail等邮件客户端查看</p>
 
 
 <?php
@@ -19,6 +20,7 @@ $results = $mysqli->query("SELECT * FROM smtp_info");
 
 print '<table border="2">';
 
+//打印表头
 print '<tr>';
 while($field = $results->fetch_field())
 {
@@ -26,6 +28,7 @@ while($field = $results->fetch_field())
 }
 print '</tr>';
  
+//打印表的全部数据
 while($row = $results->fetch_assoc()) 
 {
     print '<tr>';
@@ -41,9 +44,9 @@ while($row = $results->fetch_assoc())
 	print '<td>'.$row["attachment_name"].'</td>';
 	
 	//eml文件需要一个超链接
-	print '<td>'.$row["eml_file"].'</td>';
-	//print '<td>'.'<a href="open_outlook.php">'.$row["eml_file"].'</a>'.'</td>';
-    print '</tr>';
+    print '<td>'.'<a href=".\\myftp\\'.$row["eml_file"].'">'.$row["eml_file"].'</a>'.'</td>';
+
+	print '</tr>';
 }  
 print '</table>';
 
