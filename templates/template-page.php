@@ -18,14 +18,9 @@ if (!empty($GLOBALS['TEMPLATE']['extra_head']))
 }
 ?>
  </head>
- <body>
+ <body bgcolor="#BFE7D1">
   <div id="header">
-<?php
-if (!empty($GLOBALS['TEMPLATE']['title']))
-{
-    echo '<h1 align="center">'.$GLOBALS['TEMPLATE']['title'].'</h1>';
-}
-?>
+
   </div>
   <div id="content">
 <?php
@@ -36,7 +31,7 @@ if (!empty($GLOBALS['TEMPLATE']['content']))
 ?>
   </div>
   
- <div style="text-align:center;position:relative;width:100%;height:auto;bottom:0;" id="footer"> <hr/> Copyright &copy;<?php echo date('Y'); ?></div>
+ <div style="text-align:center;position:relative;width:100%;height:auto;" id="footer"> <hr/> Copyright &copy;<?php echo date('Y'); ?></div>
   
   </div>
  </body>

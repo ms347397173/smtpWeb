@@ -1,3 +1,5 @@
+
+
 <?php
 	$GLOBALS['TEMPLATE']['title']='搜索结果';
 	
@@ -203,14 +205,16 @@
 	
 	if($results->num_rows>0)
 	{
-	
-		print '<table border="2">';
-
+		print '<div style="text-align:center;background-color:#3E95D8;width:100%;"><p><h1> 搜索结果(共找到'.$results->num_rows.'条邮件记录)</h1></p></div>';
+		print '<br/><br/><br/><br/>';
+		
+		print '<div style="font-size:10px;font-family:sans-serif">';
+		print '<table border="0">';
 		//打印表头
 		print '<tr>';
 		while($field = $results->fetch_field())
 		{
-			print '<td>'.$field->name.'</td>';
+			print '<th>'.$field->name.'</th>';
 		}
 		print '</tr>';
  
@@ -230,11 +234,13 @@
 			print '<td>'.$row["attachment_name"].'</td>';
 		
 			//eml文件需要一个超链接
-			print '<td>'.'<a href=".\\myftp\\'.$row["eml_file"].'">'.$row["eml_file"].'</a>'.'</td>';
+			print '<td>'.'<a href="..\\myftp\\'.$row["eml_file"].'">'.$row["eml_file"].'</a>'.'</td>';
 
 			print '</tr>';
 		}  
 		print '</table>';
+		print '</div>';
+		
 	}
 	else
 	{
